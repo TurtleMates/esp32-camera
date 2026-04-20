@@ -11,7 +11,7 @@
 // Enter your WiFi credentials
 // ===========================
 const char *ssid = "Mounir";
-const char *password = "123456789";
+const char *password = "123456789##";
 
 void startCameraServer();
 void setupLedFlash();
@@ -100,7 +100,7 @@ void setup()
   // drop down frame size for higher initial frame rate
   if (config.pixel_format == PIXFORMAT_JPEG)
   {
-    s->set_framesize(s, FRAMESIZE_QVGA);
+    s->set_framesize(s, FRAMESIZE_SVGA);
   }
 
 #if defined(CAMERA_MODEL_M5STACK_WIDE) || defined(CAMERA_MODEL_M5STACK_ESP32CAM)
@@ -131,9 +131,9 @@ void setup()
 
   startCameraServer();
 
-  Serial.print("Camera Ready! Use 'http://");
+  Serial.print("Camera Ready! Stream URL: http://");
   Serial.print(WiFi.localIP());
-  Serial.println("' to connect");
+  Serial.println("/stream");
 }
 
 void loop()
